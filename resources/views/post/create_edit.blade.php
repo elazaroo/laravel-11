@@ -23,7 +23,7 @@
     <div class="col-10" id="contenedora">
         <h2 class="mt-3 ms-2">{{ empty($post) ? 'Crear publicación' : 'Editar publicación' }}</h2>
         <form method="POST" action="{{ empty($post) ? route('post.store') : route('post.update', $post) }}" class="card m-2 mt-3">
-            @csrf
+            
 
             @if(empty($post))
                 @method('post')

@@ -57,7 +57,7 @@
                             @endcan
                             @can('delete', $post)
                                 <form class="ms-3" method="POST" action="{{ route('post.delete', $post->id) }}">
-                                    @csrf
+                                    
                                     @method('delete')
                                     <a href="#" class="btn btn-dark" onclick="event.preventDefault(); this.closest('form').submit();">Eliminar</a>
                                 </form>
@@ -71,7 +71,7 @@
                             @endcan
                             @can('delete', $post)
                                 <form class="ms-3" method="POST" action="{{ route('post.delete', $post->id) }}">
-                                    @csrf
+                                    
                                     @method('delete')
                                     <a href="#" class="btn btn-dark" onclick="event.preventDefault(); this.closest('form').submit();"><i class="fa-solid fa-trash"></i></a>
                                 </form>
