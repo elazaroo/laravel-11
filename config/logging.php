@@ -2,19 +2,41 @@
 
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
-use Monolog\Handler\SwiftMailerHandler;
-use Swift_SmtpTransport;
-use Swift_Mailer;
-use Swift_Message;
 
 return [
 
+    /*
+    |--------------------------------------------------------------------------
+    | Default Log Channel
+    |--------------------------------------------------------------------------
+    |
+    | This option defines the default log channel that gets used when writing
+    | messages to the logs. The name specified in this option should match
+    | one of the channels defined in the "channels" configuration array.
+    |
+    */
+
     'default' => env('LOG_CHANNEL', 'stack'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Log Channels
+    |--------------------------------------------------------------------------
+    |
+    | Here you may configure the log channels for your application. Out of
+    | the box, Laravel uses the Monolog PHP logging library. This gives
+    | you a variety of powerful log handlers / formatters to utilize.
+    |
+    | Available Drivers: "single", "daily", "slack", "syslog",
+    |                    "errorlog", "monolog",
+    |                    "custom", "stack"
+    |
+    */
 
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['daily', 'email'],
+            'channels' => ['daily'],
             'ignore_exceptions' => false,
         ],
 
@@ -66,21 +88,6 @@ return [
         'errorlog' => [
             'driver' => 'errorlog',
             'level' => 'debug',
-        ],
-
-        'email' => [
-            'driver' => 'monolog',
-            'level' => 'error',
-            'handler' => SwiftMailerHandler::class,
-            'handler_with' => [
-                'mailer' => new Swift_Mailer((new Swift_SmtpTransport(env('MAIL_HOST'), env('MAIL_PORT')))
-                    ->setUsername(env('MAIL_USERNAME'))
-                    ->setPassword(env('MAIL_PASSWORD'))
-                    ->setEncryption(env('MAIL_ENCRYPTION'))),
-                'message' => (new Swift_Message('Error Log'))
-                    ->setFrom([env('MAIL_FROM_ADDRESS') => env('MAIL_FROM_NAME')])
-                    ->setTo([env('MAIL_TO_ADDRESS')]),
-            ],
         ],
     ],
 
