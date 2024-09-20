@@ -31,7 +31,7 @@
         </div>
         <h1 class="mt-3 ms-3">Registro</h1>
         <form class="ms-3" action="{{ route('validar-registro') }}" method="POST">
-            @csrf
+            
             <div class="mb-3">
                 <label for="username" class="form-label">Nombre de usuario</label>
                 <input type="text" class="form-control" id="username" name="username" required>
