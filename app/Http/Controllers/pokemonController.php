@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Evolution;
-use App\Models\Type;
-use App\Models\Pokemons;
+use App\Evolution;
+use App\Type;
+use App\Pokemons;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
