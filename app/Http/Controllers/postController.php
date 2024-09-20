@@ -6,7 +6,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use App\Models\Post;
+use App\Post;
 use Illuminate\Support\Facades\Auth;
 
 class postController extends Controller
